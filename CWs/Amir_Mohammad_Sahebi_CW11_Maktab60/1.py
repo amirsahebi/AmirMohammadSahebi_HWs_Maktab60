@@ -13,4 +13,4 @@ result_list = []
 for i in range(params['results']):
     result_list.append(result['results'][i]['name']['first'] + " " + result['results'][i]['name']['last'])
 
-print(result_list)
+pprint.pp(result_list)
