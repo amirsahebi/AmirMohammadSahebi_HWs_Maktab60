@@ -9,4 +9,4 @@ def ch_exist(word,text):
     else:
         print("The word doesn't exist at the last of sentence!")
 
-ch_exist("python","it's interesting to see growth in python")
+# ch_exist("python","it's interesting to see growing in python")

@@ -1,7 +1,15 @@
 import re
-import datetime
 import jdatetime
 import time
+
+
+
+
+name_1 = "Mohammad Ahmadi"
+email_1 = "testmail@test.com"
+phone_1 = "09123456789"
+birthday_1 = "21/08/1380"
+password_1 = "ItsJustTest1"
 
 def calculate_time(func):
     def wrapper(*args):
@@ -10,13 +18,6 @@ def calculate_time(func):
         print(f'time :{time.time()-start_time}s')
         return value
     return wrapper
-
-
-name_1 = "Mohammad Ahmadi"
-email_1 = "testmail@test.com"
-phone_1 = "09123456789"
-birthday_1 = "21/08/1380"
-password_1 = "ItsJustTest1"
 
 @calculate_time
 def name1(name_1):
@@ -50,7 +51,6 @@ def age(date):
     b=jdatetime.date.today() - jalali
     print(int(b.days/365))
 
-
 def resttobirth(date):
     date=re.search("^(0*[1-9]|[12][0-9]|3[01])[-/.](0*[1-9]|1[012])[-/.](12|13|14)[0-9][0-9]$",f"{date}")
     date_list = list(map(int, date.group().split(sep=r"/")))
@@ -58,5 +58,5 @@ def resttobirth(date):
     b=jdatetime.date.today() - jalali
     print((b.days%365))
 
-resttobirth(birthday_1)
+# resttobirth(birthday_1)
 
