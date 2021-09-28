@@ -10,6 +10,7 @@ class Card:
     def use(self):
         if self.checkcredit(100):
             self.credit -= 100
+            return True
         else:
             print("credit not efficient!")
             return False
@@ -26,6 +27,7 @@ class Creditcard(Card):
 class Timecreditcard(Card):
     def __init__(self, credit):
         super().__init__(credit)
+        self.expiration=datetime.datetime.now()
         self.renew()
 
     def checkexp(self,today):
