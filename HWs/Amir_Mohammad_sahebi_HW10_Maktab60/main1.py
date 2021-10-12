@@ -8,7 +8,7 @@ logging.basicConfig(filename='ticket.log', level=logging.DEBUG)
 class System:
     password1="1234abcd"
     admin=False
-    event_num=0
+    event_num=1
     discounts={
         "teacher":[457,755,443,343],
         "student":[343,453,545,234],
@@ -45,8 +45,7 @@ class User:
     # defining a method for displaying events
     @staticmethod
     def event_show():
-        i = 1
-        for i in range(1,System.event_num+1):
+        for i in range(1,System.event_num):
             print('event number:', DB.hget(f'event:{i}', 'event_number'))
             print('date:', DB.hget(f'event:{i}', 'date'))
             print('location:', DB.hget(f'event:{i}', 'location'))

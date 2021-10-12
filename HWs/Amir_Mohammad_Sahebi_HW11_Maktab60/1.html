@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="col-md-12">
+        <table class="table responsive" style="direction: ltr;" id="tbl">
+            <thead>
+                <th>شماره</th>
+                <th>نام</th>
+                <th>نام خانوادگی</th>
+                <th>آدرس</th>
+                <th>وضعیت</th>
+                <th>ویرایش</th>
+                <th>حذف</th>
+                <th>کپی</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>خالی</td>
+                    <td>خالی</td>
+                    <td>خالی</td>
+                    <td>
+                        <button class="btn btn-success" id="statusBtn" onclick="setatr(id)" status="enable">فعال</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ویرایش</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" onclick="delete_row_table(this)">حذف</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-secondary" onclick="copy_row_table(this)">کپی</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>خالی</td>
+                    <td>خالی</td>
+                    <td>خالی</td>
+                    <td>
+                        <button class="btn btn-warning" id="statusBtn1" onclick="setatr(id)" status="not set">تنظیم نشده</button>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ویرایش</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" onclick="delete_row_table(this)">حذف</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-secondary" onclick="copy_row_table(this)">کپی</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>خالی</td>
+                    <td>خالی</td>
+                    <td>خالی</td>
+                    <td>
+                        <button class="btn btn-danger" id="statusBtn2" onclick="setatr(id)" status="disable">غیر فعال</button> </td>
+                    <td>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">ویرایش</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" onclick="delete_row_table(this)">حذف</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-secondary" onclick="copy_row_table(this)">کپی</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">اطلاعات شخصی</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>نام</label>
+                            <input class="form-control" placeholder="نام">
+                            <label>نام خانوادگی</label>
+                            <input class="form-control" placeholder="نام خانوادگی">
+                            <label>آدرس</label>
+                            <input class="form-control" placeholder="آدرس">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
+                    <button type="button" class="btn btn-primary">ذخیره تغییرات</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function setatr(that) {
+            btn = document.getElementById(that)
+
+            if (btn.getAttribute('status') == "enable") {
+                btn.innerHTML = 'غیر فعال'
+                btn.setAttribute('status', 'disable')
+                btn.classList.remove("btn-success");
+                btn.classList.add("btn-danger");
+            } else if (btn.getAttribute('status') == "disable") {
+                btn.innerHTML = 'تنظیم نشده'
+                btn.setAttribute('status', 'not set')
+                btn.classList.remove("btn-danger");
+                btn.classList.add("btn-warning");
+            } else {
+                btn.innerHTML = 'فعال'
+                btn.setAttribute('status', 'enable')
+                btn.classList.remove("btn-warning");
+                btn.classList.add("btn-success");
+            }
+            console.log(btn.getAttribute('status'))
+        }
+
+        function copy_row_table(that) {
+            var tr = that.parentNode.parentNode.cloneNode(true);
+            document.getElementById('tbl').appendChild(tr);
+        }
+
+        function delete_row_table(that) {
+            that_tr = that.closest('tr').remove()
+            alert('سطر پاک شد')
+        }
+    </script>
+</body>
+
+</html>
