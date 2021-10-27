@@ -1,0 +1,5 @@
+SELECT 
+    *
+FROM
+    customer
+where first_name like 'R%n';

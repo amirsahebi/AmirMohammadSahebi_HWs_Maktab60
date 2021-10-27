@@ -1,0 +1,5 @@
+select *
+from actor
+where first_name='Nick' or
+first_name='Bette' or
+first_name='Ed';

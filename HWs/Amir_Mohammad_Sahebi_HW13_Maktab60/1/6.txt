@@ -1,0 +1,6 @@
+select max(return_date-rental_date) as maximum_rent,
+min(return_date-rental_date) as minimum_rent,
+avg(return_date-rental_date) as average_rent
+from rental
+group by customer_id
+order by customer_id;
