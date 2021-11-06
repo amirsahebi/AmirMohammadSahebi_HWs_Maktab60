@@ -1,0 +1,3 @@
+MONGO_HOST="localhost"
+MONGO_USER=""
+MONGO_PASS=""
