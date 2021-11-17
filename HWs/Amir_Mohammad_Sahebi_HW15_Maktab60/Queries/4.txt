@@ -1,0 +1,2 @@
+from django.db.models import Count
+CartItem.objects.values('product__category','cart').filter(cart__is_paid=True).values('product__category').annotate(buy_count=Count('product__category')).order_by('buy_count')[::-1][1]

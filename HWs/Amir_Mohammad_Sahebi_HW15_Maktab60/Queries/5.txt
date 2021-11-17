@@ -1,0 +1,1 @@
+Order.objects.filter(created_at__week_day=3)

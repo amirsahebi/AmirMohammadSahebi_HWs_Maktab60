@@ -1,0 +1,4 @@
+from django.db.models import Count
+tag_used_numbers=Product.objects.aggregate(a=Count('tags'))['a']
+all=Product.objects.count()
+tag_used_numbers/all

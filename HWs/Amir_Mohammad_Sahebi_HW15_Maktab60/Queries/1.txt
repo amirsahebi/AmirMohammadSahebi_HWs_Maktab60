@@ -1,0 +1,2 @@
+from django.db.models import Avg
+Product.objects.filter(price__gt=Product.objects.aggregate(Avg('price'))['price__avg'])
