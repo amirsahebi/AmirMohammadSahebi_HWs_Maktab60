@@ -4,12 +4,12 @@ from django.db import models
 
 
 class AvailablesManager(models.manager):
-    def get_query_set(self):
-        return super(AvailablesManager, self).get_query_set().filter(status="Available")
+    def get_queryset(self):
+        return super(AvailablesManager, self).get_queryset().filter(status="Available")
 
 class UnavailablesManager(models.manager):
-    def get_query_set(self):
-        return super(UnavailablesManager, self).get_query_set().filter(status="Unavailable")
+    def get_queryset(self):
+        return super(UnavailablesManager, self).get_queryset().filter(status="Unavailable")
 
 
 class Product(models.Model):
@@ -23,6 +23,8 @@ class Product(models.Model):
     year = models.DateField()
     country = models.CharField(max_length=255)
     status = models.CharField(choices=statuses)
+
+
     available_products = AvailablesManager()
     unavailable_products = UnavailablesManager()
 

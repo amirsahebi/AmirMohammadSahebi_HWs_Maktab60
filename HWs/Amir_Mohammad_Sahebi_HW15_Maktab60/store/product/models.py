@@ -2,12 +2,12 @@ from django.db import models
 
 
 class AvailablesManager(models.Manager):
-    def get_query_set(self):
-        return super(AvailablesManager, self).get_query_set().filter(status="Available")
+    def get_queryset(self):
+        return super(AvailablesManager, self).get_queryset().filter(status="Available")
 
 class UnavailablesManager(models.Manager):
-    def get_query_set(self):
-        return super(UnavailablesManager, self).get_query_set().filter(status="Unavailable")
+    def get_queryset(self):
+        return super(UnavailablesManager, self).get_queryset().filter(status="Unavailable")
 
 
 
