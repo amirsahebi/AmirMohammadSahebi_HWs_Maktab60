@@ -5,7 +5,7 @@
     <ul>
         {% for comment in object.comment.all %}
         <li>
-            <h4>{{comment}}</h4>
+            <h4>{{comment.name}}</h4>
             <h5>{{comment.content}}</h5>
         </li>
         {% endfor %}
