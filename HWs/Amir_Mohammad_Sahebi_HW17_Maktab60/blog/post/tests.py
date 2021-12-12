@@ -15,6 +15,7 @@ class TestPost(APITestCase):
     def setUp(self):
         mommy.make(Post,category=ca1, _quantity=10)
         mommy.make(Comment, post=p1 ,_quantity=20)
+        mommy.make(Category,_quantity=20)
 
     def test_post_list(self):
         resp = self.client.get(reverse('post_list'))
@@ -24,6 +25,12 @@ class TestPost(APITestCase):
 
     def test_comment_list(self):
         resp = self.client.get(reverse('comment_list'))
+
+        self.assertEqual(len(resp.data),20)
+        self.assertEqual(resp.status_code,200)
+
+    def test_category_list(self):
+        resp = self.client.get(reverse('category_list'))
 
         self.assertEqual(len(resp.data),20)
         self.assertEqual(resp.status_code,200)

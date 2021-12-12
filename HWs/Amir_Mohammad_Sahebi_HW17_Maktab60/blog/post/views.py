@@ -47,3 +47,10 @@ def CommentDetailView(request, id):
     serializer = CommentDetailSerializer(comment)
 
     return Response(data=serializer.data, status=200)
+
+@api_view(['GET'])
+def CategoryDetailView(request,id):
+    category = Category.objects.get(id=id)
+    serializer = CategorySerializer(category)
+
+    return Response(data=serializer.data, status=200)
