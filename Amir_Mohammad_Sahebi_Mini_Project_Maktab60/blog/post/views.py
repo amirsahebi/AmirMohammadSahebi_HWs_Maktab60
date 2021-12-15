@@ -173,7 +173,7 @@ def AddCategory(request):
         form = CategoryModelFormView(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.ERROR, f'The post successfully saved!',extra_tags="success")
+            messages.add_message(request, messages.ERROR, f'The category successfully saved!',extra_tags="success")
             return redirect(reverse('category_list'))
 
     return render(request,'forms/category_form.html',{'form':form})
@@ -227,7 +227,7 @@ def DeleteTag(request,id):
         tag.delete()
         return redirect(reverse('tag_list')) 
 
-    return render(request,'forms/delete_category_form.html',{'form':form,'tag':tag})
+    return render(request,'forms/delete_tag.html',{'form':form,'tag':tag})
 
 def AddTag(request):
     form = TagModelFormView()

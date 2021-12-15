@@ -1,0 +1,14 @@
+<div>
+    <h2>{{ object.name}}</h2>
+    <p>{{object.caption}}</p>
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in object.comment.all %}
+        <li>
+            <h4>{{comment}}</h4>
+            <h5>{{comment.content}}</h5>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
